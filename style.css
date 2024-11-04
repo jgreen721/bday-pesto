@@ -1,0 +1,848 @@
+@import url("https://fonts.googleapis.com/css2?family=Kablammo&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  max-width: 85rem;
+  margin: 0 auto;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 2px solid black; */
+}
+
+.bday-text {
+  position: absolute;
+  z-index: 50;
+  /* transform: translate(-5rem, -20rem); */
+  font-family: "Kablammo", system-ui;
+  font-size: 2rem;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 5.5rem;
+}
+
+.text-div {
+  position: relative;
+  animation: clearblur 3s 3s forwards;
+  filter: blur(100px);
+  /* border: 2px solid red; */
+}
+
+@keyframes clearblur {
+  100% {
+    filter: blur(0px);
+  }
+}
+
+.h1-text {
+  position: relative;
+  z-index: 10;
+  text-shadow: 10px 10px 1px rgb(10, 10, 200, 0.5);
+}
+
+.glow-text {
+  color: white;
+  filter: blur(2px);
+}
+
+.shadow-text,
+.glow-text {
+  position: absolute;
+  top: 0;
+}
+
+.snow {
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  z-index: 10;
+}
+
+@keyframes fallingsnow {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(125vh);
+  }
+}
+
+.scene-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sky-mountains-sun-container {
+  flex-grow: 1;
+  width: 100%;
+  position: relative;
+  /* border: 2px solid black; */
+}
+
+.sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    /* rgb(78, 192, 236),
+    skyblue, */ rgb(25, 25, 25),
+    rgb(65, 65, 65)
+  );
+}
+
+.mountains {
+  /* display: flex; */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  /* border: 3px solid red; */
+}
+
+.mountain {
+  background: rgb(69, 166, 211);
+  position: absolute;
+  bottom: 0;
+  /* border: 1px solid white; */
+}
+
+.mountain-1 {
+  height: 500px;
+  width: 500px;
+  z-index: 1;
+  transform: rotate(45deg) translateY(250px) translateX(125px);
+  box-shadow: -5px 5px 15px 9px rgba(15, 15, 20, 0.3) inset;
+}
+
+.mountain-1::after {
+  content: "";
+  height: 30%;
+  width: 100%;
+  top: 35%;
+  background: blue;
+  position: absolute;
+  filter: blur(105px);
+  opacity: 55%;
+}
+
+.mountain-2 {
+  height: 300px;
+  width: 300px;
+  left: 175px;
+  transform: rotate(45deg) translateY(0px) translateX(225px);
+  box-shadow: -5px 5px 15px 9px rgba(15, 15, 20, 0.3) inset;
+}
+
+.mountain-2::after {
+  content: "";
+  height: 30px;
+  width: 100%;
+  top: 35%;
+  background: blue;
+  position: absolute;
+  filter: blur(35px);
+}
+
+.sun {
+  height: 250px;
+  width: 250px;
+  background: white;
+  position: absolute;
+  right: -5rem;
+  top: -5rem;
+  border-radius: 50%;
+  filter: blur(5px);
+}
+
+.sun::after {
+  content: "";
+  position: absolute;
+  right: 0rem;
+  width: 165px;
+  height: 165px;
+  background: rgb(35, 35, 25);
+  filter: blur(35px);
+  opacity: 45%;
+}
+
+.ground {
+  height: 25%;
+  width: 100%;
+  background: linear-gradient(to right, rgb(15, 15, 20), darkgray, gray);
+  position: relative;
+  z-index: 5;
+  /* border: 2px solid red; */
+}
+
+.penguin-container {
+  height: 350px;
+  width: 250px;
+  /* border: 2px solid red; */
+  position: absolute;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(5rem);
+}
+
+.graduation-cap {
+  height: 100px;
+  width: 100%;
+  /* border: 2px solid red; */
+  position: relative;
+  z-index: 10;
+  top: -65px;
+  transform: rotate(5deg) translateX(0.5rem);
+  animation: fallingcap 2s ease-in forwards;
+  top: -150rem;
+}
+
+@keyframes fallingcap {
+  100% {
+    top: -65px;
+  }
+}
+
+.cap {
+  width: 75%;
+  border: 2px solid black;
+  height: 100%;
+  position: absolute;
+  left: 12.5%;
+  background: black;
+}
+
+.brim {
+  width: 100%;
+  height: 10px;
+  background: black;
+  position: relative;
+}
+
+.brim::after {
+  content: "";
+  width: 35px;
+  height: 15px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  background: white;
+  position: absolute;
+  top: -10px;
+  left: 2rem;
+  transform: scale(0);
+  animation: scalesnow 12s 7s forwards;
+}
+
+.brim::before {
+  width: 45%;
+  height: 5px;
+  border-radius: 2rem;
+  background: white;
+  position: absolute;
+  content: "";
+  z-index: 5;
+  left: 1rem;
+  transform: scale(0);
+  animation: scalesnow 12s 7s forwards;
+}
+
+@keyframes scalesnow {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.tassel {
+  right: 0.25rem;
+  top: 0.25rem;
+  height: 75px;
+  width: 15px;
+  border: 2px solid red;
+  background: red;
+  position: absolute;
+  transform: rotate(-5deg);
+  filter: blur(5px);
+}
+
+.penguin-head {
+  border-radius: 45%;
+  height: 155px;
+  width: 75%;
+  /* border: 2px solid black; */
+  position: absolute;
+  background: linear-gradient(to right, rgb(146, 137, 137), lightgray);
+  background: linear-gradient(rgb(15, 15, 15), rgb(45, 50, 50));
+  z-index: 5;
+}
+
+.penguin-face {
+  height: 85%;
+  width: 90%;
+  position: absolute;
+  left: 5%;
+  top: 12.5%;
+  border-radius: 100px;
+  background: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.eyes-row {
+  width: 100px;
+  height: 35px;
+  /* border: 2px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(1rem);
+}
+
+.eye {
+  height: 100%;
+  width: 25px;
+  background: black;
+  border-radius: 50%;
+  position: relative;
+  transform: scaleY(0.5);
+}
+
+.eye::after {
+  content: "";
+  position: absolute;
+  height: 85%;
+  width: 125%;
+  left: -12.5%;
+  border-radius: 100px;
+  bottom: 0;
+  background: white;
+  transform: translateY(2rem);
+  animation: blink 8s infinite;
+}
+
+.eye-inside {
+  height: 85%;
+  width: 100%;
+  border-radius: 100px;
+  background: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.eye-inside::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: black;
+  width: 60%;
+  height: 60%;
+  bottom: 0;
+  /* right: 0; */
+  /* animation: lookaround 6s linear forwards; */
+}
+
+@keyframes blink {
+  0% {
+    transform: translateY(2rem);
+  }
+  25% {
+    transform: translateY(2rem);
+  }
+
+  35% {
+    transform: translateY(0.15rem);
+    /* opacity: 0; */
+  }
+
+  45% {
+    transform: translateY(0.15rem);
+  }
+  55% {
+    transform: translateY(2rem);
+  }
+
+  65% {
+    transform: translateY(0.15rem);
+    /* opacity: 0; */
+  }
+
+  90% {
+    transform: translateY(0.15rem);
+  }
+  100% {
+    transform: translateY(2);
+  }
+}
+
+.nose {
+  height: 20px;
+  width: 30px;
+  background: orange;
+  clip-path: polygon(100% 0, 0 0, 50% 100%);
+}
+
+.penguin-body {
+  border-radius: 45%;
+  height: 250px;
+  width: 85%;
+  /* border: 2px solid black; */
+  position: absolute;
+  bottom: 1rem;
+  background: linear-gradient(rgb(15, 15, 15), rgb(45, 50, 50));
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.penguin-belly {
+  width: 75%;
+  height: 75%;
+  background: white;
+  border-radius: 100px;
+}
+
+.penguin-flippers {
+  width: 100%;
+  height: 125px;
+  /* border: 2px solid red; */
+  top: 135px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flipper {
+  width: 60px;
+  height: 100%;
+  /* border: 2px solid red; */
+  background: rgb(35, 35, 25);
+}
+
+.left-flipper {
+  border-radius: 1rem;
+  border-bottom-right-radius: 5rem;
+  transform: rotate(105deg) translateX(2rem) translateY(-2rem);
+  transform-origin: top;
+  animation: wavingstart 2s 2s forwards, waving 0.5s 4s infinite;
+}
+
+@keyframes wavingstart {
+  0% {
+    transform: rotate(105deg) translateX(2rem) translateY(-2rem);
+  }
+  100% {
+    transform: rotate(135deg) translateX(0.5rem) translateY(-2rem);
+  }
+}
+
+@keyframes waving {
+  0% {
+    transform: rotate(135deg) translateX(0.5rem) translateY(-2rem);
+  }
+  50% {
+    transform: rotate(125deg) translateX(1rem) translateY(-2rem);
+  }
+  100% {
+    transform: rotate(135deg) translateX(0.5rem) translateY(-2rem);
+  }
+}
+
+.right-flipper {
+  border-radius: 1rem;
+  border-bottom-left-radius: 5rem;
+  transform: rotate(-45deg) translateX(-2rem) translateY(-2rem);
+  transform-origin: top;
+  animation: waving2 6s 2s infinite;
+}
+
+@keyframes waving2 {
+  0% {
+    transform: rotate(-45deg) translateX(-2rem) translateY(-2rem);
+  }
+  45% {
+    transform: rotate(-45deg) translateX(-2rem) translateY(-2rem);
+  }
+  50% {
+    transform: rotate(-35deg) translateX(-2.5rem) translateY(-1rem);
+  }
+  55% {
+    transform: rotate(-45deg) translateX(-2rem) translateY(-2rem);
+  }
+
+  65% {
+    transform: rotate(-45deg) translateX(-2rem) translateY(-2rem);
+  }
+  70% {
+    transform: rotate(-35deg) translateX(-2.5rem) translateY(-1rem);
+  }
+  75% {
+    transform: rotate(-45deg) translateX(-2rem) translateY(-2rem);
+  }
+
+  85% {
+    transform: rotate(-45deg) translateX(-2rem) translateY(-2rem);
+  }
+  90% {
+    transform: rotate(-35deg) translateX(-2.5rem) translateY(-1rem);
+  }
+  /* 55% {
+    transform: rotate(-45deg) translateX(-2rem) translateY(-2rem);
+  } */
+  100% {
+    transform: rotate(-45deg) translateX(-2rem) translateY(-2rem);
+  }
+}
+
+.penguin-feet {
+  width: 125px;
+  height: 50px;
+  /* border: 2px solid red; */
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform-style: preserve-3d;
+  bottom: -0.5rem;
+}
+
+.penguin-foot {
+  height: 50px;
+  width: 40px;
+  border-radius: 100px;
+  background: orange;
+  transform-style: preserve-3d;
+}
+
+.left-foot {
+  transform: rotate(75deg);
+}
+.right-foot {
+  transform: rotate(-75deg);
+}
+
+@media screen and (max-width: 475px) {
+  .sun {
+    height: 175px;
+    width: 175px;
+    right: -2.5rem;
+    top: -2.5rem;
+  }
+
+  .sun::after {
+    content: "";
+    position: absolute;
+    right: 3rem;
+    top: 3rem;
+    /*top: 5rem; */
+    width: 65px;
+    height: 65px;
+    background: rgb(35, 35, 25);
+    filter: blur(35px);
+    opacity: 45%;
+  }
+  .mountain-1 {
+    height: 350px;
+    width: 350px;
+    z-index: 5;
+    transform: rotate(45deg) translateY(175px) translateX(75px);
+    box-shadow: -5px 5px 15px 9px rgba(15, 15, 20, 0.3) inset;
+  }
+
+  .mountain-2 {
+    height: 200px;
+    width: 200px;
+    left: 75px;
+    transform: rotate(45deg) translateY(-70px) translateX(175px);
+    box-shadow: -5px 5px 15px 9px rgba(15, 15, 20, 0.3) inset;
+  }
+}
+
+/*PENGUIN ANIMATED SCENE */
+
+.carousel-penguin-parent {
+  height: 150px;
+  width: 95%;
+  position: absolute;
+  left: 2.5%;
+  bottom: 2rem;
+  /* border: 2px solid red; */
+  z-index: 20;
+  transform: scale(0.7);
+}
+
+.penguin-carousel-row {
+  height: 100%;
+  position: relative;
+  width: calc(205 * 10px);
+  display: flex;
+  /* border: 3px solid red; */
+  gap: 2rem;
+  animation: marchingpenguins 12s linear infinite;
+}
+
+@keyframes marchingpenguins {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-36.25%);
+  }
+}
+
+.carousel-penguin {
+  height: 100%;
+  width: 100%;
+  /* border: 3px solid green; */
+  position: relative;
+  overflow: hidden;
+  border-radius: 5%;
+  border-top-left-radius: 45%;
+  border-top-right-radius: 45%;
+}
+
+.carousel-penguin-div {
+  height: 100%;
+  width: 100px;
+  /* position: relative;
+  overflow: hidden;
+  border-radius: 5%;
+  border-top-left-radius: 45%;
+  border-top-right-radius: 45%; */
+}
+
+.pesto-div {
+  /* height: 150%; */
+  transform: translateY(-50%) scale(2);
+}
+
+.carousel-penguin-body {
+  border-radius: 5%;
+  border-top-left-radius: 45%;
+  border-top-right-radius: 45%;
+  background: rgb(15, 15, 20);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 5;
+  animation: scrunchbody 1s infinite;
+  transform-origin: bottom;
+}
+
+.pesto-body {
+  background: rgb(100, 62, 6);
+  filter: blur(5px);
+}
+
+@keyframes scrunchbody {
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.95);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.penguin-carousel-white-face {
+  width: 75%;
+  position: absolute;
+  height: 55px;
+  background: white;
+  top: 1.5rem;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  z-index: 10;
+  animation: scrunchface 1s infinite;
+  transform-origin: left;
+}
+
+.pesto-face {
+  background: rgb(56, 40, 15);
+  filter: blur(5px);
+}
+
+@keyframes scrunchface {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.75);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.carousel-penguin-eye {
+  height: 20px;
+  width: 15px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 1.75rem;
+  left: 1.25rem;
+  z-index: 15;
+  animation: scruncheye 1s infinite;
+}
+
+@keyframes scruncheye {
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.65);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.carousel-penguin-nose {
+  height: 20px;
+  width: 12px;
+  background: orange;
+  position: absolute;
+  border-radius: 0.2rem;
+  border-bottom-right-radius: 2rem;
+  left: 0rem;
+  top: 2.5rem;
+  z-index: 15;
+  animation: scruncheye 1s infinite;
+}
+
+.carousel-penguin-wing {
+  height: 35px;
+  width: 20px;
+  background: black;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  left: 47.5%;
+  top: 60%;
+  z-index: 15;
+  position: absolute;
+  animation: swingwing 1s infinite;
+  transform-origin: bottom;
+}
+
+.pesto-wing {
+  background: rgb(56, 40, 15);
+  filter: blur(5px);
+}
+
+@keyframes swingwing {
+  0% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(20deg);
+  }
+}
+
+.carousel-penguin-foot {
+  width: 60px;
+  position: absolute;
+  left: 20px;
+  background: orange;
+  height: 40px;
+  border-radius: 100px;
+  bottom: -15px;
+  animation: flapfoot 1s linear infinite;
+  box-shadow: 2px -5px 10px rgba(10, 10, 15, 0.5) inset;
+}
+
+@keyframes flapfoot {
+  0% {
+    transform: rotateX(-75deg);
+  }
+  50% {
+    transform: rotateX(75deg);
+  }
+  100% {
+    transform: rotateX(-75deg);
+  }
+}
+
+.blurb {
+  background: white;
+  position: absolute;
+  top: -8rem;
+  border-radius: 2rem;
+  padding: 1rem;
+  border-bottom-left-radius: 35%;
+  box-shadow: 1px 1px 2px black;
+  animation: scaleblurb 5s 2s linear infinite;
+  transform: scaleY(0) translateY(5rem);
+  font-family: sans-serif;
+  transform-origin: bottom;
+}
+
+@keyframes scaleblurb {
+  0% {
+    transform: scaleY(0) translateY(5rem);
+  }
+  10% {
+    transform: scaleY(1) translateY(0rem);
+  }
+
+  50% {
+    transform: scaleY(1) translateY(0rem);
+  }
+  55% {
+    transform: scaleY(0) translateY(5rem);
+  }
+  100% {
+    transform: scaleY(0) translateY(5rem);
+  }
+}
+
+.blurb::before {
+  content: "";
+  border-radius: 50%;
+  background: white;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  left: 0.5rem;
+  bottom: -1rem;
+  box-shadow: 1px 1px 2px black;
+}
+
+.blurb::after {
+  content: "";
+  border-radius: 50%;
+  background: white;
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  left: 0.5rem;
+  bottom: -2rem;
+  box-shadow: 1px 1px 2px black;
+}
