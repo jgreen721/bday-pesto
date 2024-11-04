@@ -626,6 +626,7 @@
 .carousel-penguin-div {
   height: 100%;
   width: 100px;
+  position: relative;
   /* position: relative;
   overflow: hidden;
   border-radius: 5%;
